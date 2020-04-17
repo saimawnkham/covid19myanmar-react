@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {useLocation} from 'react-router-dom';
 import axios from 'axios';
-import {format, parse, subDays} from 'date-fns';
+import {format, parse} from 'date-fns';
 
 import Patients from './patients';
 import DownloadBlock from './downloadblock';
@@ -30,7 +30,6 @@ function PatientDB(props) {
     detectedcity: '',
     dateannounced: '',
     // unfilter until data are low enough to show
-    // dateannounced: format(subDays(new Date(), 1), 'dd/MM/yyyy'),
   });
 
   useEffect(() => {

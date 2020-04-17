@@ -21,8 +21,6 @@ import Footer from './footer';
 
 function Home(props) {
   const [states, setStates] = useState([]);
-  const [stateDistrictWiseData, setStateDistrictWiseData] = useState({});
-  const [stateTestData, setStateTestData] = useState({});
   const [fetched, setFetched] = useState(false);
   const [graphOption, setGraphOption] = useState(1);
   const [lastUpdated, setLastUpdated] = useState('');
@@ -43,30 +41,16 @@ function Home(props) {
     try {
       const [
         {data},
-        stateDistrictWiseResponse,
         {data: statesDailyResponse},
-        {data: stateTestData},
       ] = await Promise.all([
-        axios.get('https://api.covid19india.org/data.json'),
-        axios.get('https://api.covid19india.org/state_district_wise.json'),
-        axios.get('https://api.covid19india.org/states_daily.json'),
-        axios.get('https://api.covid19india.org/state_test_data.json'),
+        axios.get('https://raw.githubusercontent.com/thantthet/coivd19-api/master/data.json'),
+        axios.get('https://raw.githubusercontent.com/thantthet/coivd19-api/master/states_daily.json'),
       ]);
       setStates(data.statewise);
       const ts = parseStateTimeseries(statesDailyResponse);
       ts['TT'] = preprocessTimeseries(data.cases_time_series); // TT -> India
       setTimeseries(ts);
       setLastUpdated(data.statewise[0].lastupdatedtime);
-      const testData = stateTestData.states_tested_data.reverse();
-      const totalTest = data.tested[data.tested.length - 1];
-      testData.push({
-        updatedon: totalTest.updatetimestamp.split(' ')[0],
-        totaltested: totalTest.totalindividualstested,
-        source: totalTest.source,
-        state: 'Total', // India
-      });
-      setStateTestData(testData);
-      setStateDistrictWiseData(stateDistrictWiseResponse.data);
       setFetched(true);
     } catch (err) {
       console.log(err);
@@ -135,7 +119,7 @@ function Home(props) {
               forwardRef={refs[0]}
               states={states}
               summary={false}
-              stateDistrictWiseData={stateDistrictWiseData}
+              // stateDistrictWiseData={stateDistrictWiseData}
               onHighlightState={onHighlightState}
               onHighlightDistrict={onHighlightDistrict}
             />
@@ -147,10 +131,10 @@ function Home(props) {
             <React.Fragment>
               <MapExplorer
                 forwardRef={refs[1]}
-                mapMeta={MAP_META.India}
+                mapMeta={MAP_META.Myanmar}
                 states={states}
-                stateDistrictWiseData={stateDistrictWiseData}
-                stateTestData={stateTestData}
+                // stateDistrictWiseData={stateDistrictWiseData}
+                // stateTestData={stateTestData}
                 regionHighlighted={regionHighlighted}
                 onMapHighlightChange={onMapHighlightChange}
                 isCountryLoaded={true}

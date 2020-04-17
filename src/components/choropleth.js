@@ -5,7 +5,7 @@ import {MAP_TYPES} from '../constants';
 import legend from './legend';
 
 const propertyFieldMap = {
-  country: 'st_nm',
+  country: 'ST',
   state: 'district',
 };
 

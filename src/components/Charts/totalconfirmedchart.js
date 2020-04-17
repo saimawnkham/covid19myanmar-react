@@ -32,8 +32,8 @@ function TotalConfirmedChart(props) {
   }
 
   props.timeseries.forEach((data, index) => {
-    if (index >= 31) {
-      dates.push(moment(data.date.trim(), 'DD MMM'));
+    if (index >= 0) {
+      dates.push(moment(data.date.trim(), 'DD/MM/YYYY'));
       confirmed.push(data.totalconfirmed);
       recovered.push(data.totalrecovered);
       deceased.push(data.totaldeceased);

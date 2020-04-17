@@ -23,12 +23,14 @@ function PatientDB(props) {
   const [error, setError] = useState('');
   const {pathname} = useLocation();
   const [colorMode, setColorMode] = useState('genders');
-  const [scaleMode, setScaleMode] = useState(false);
+  const [scaleMode, setScaleMode] = useState(true);
   const [filters, setFilters] = useState({
     detectedstate: '',
     detecteddistrict: '',
     detectedcity: '',
-    dateannounced: format(subDays(new Date(), 1), 'dd/MM/yyyy'),
+    dateannounced: '',
+    // unfilter until data are low enough to show
+    // dateannounced: format(subDays(new Date(), 1), 'dd/MM/yyyy'),
   });
 
   useEffect(() => {
@@ -38,7 +40,7 @@ function PatientDB(props) {
   useEffect(() => {
     async function fetchRawData() {
       const response = await axios.get(
-        'https://api.covid19india.org/raw_data.json'
+        'https://raw.githubusercontent.com/thantthet/coivd19-api/master/raw_data.json'
       );
       if (response.data) {
         setPatients(response.data.raw_data.reverse());

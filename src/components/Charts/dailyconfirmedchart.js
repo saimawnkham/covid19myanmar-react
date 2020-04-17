@@ -31,8 +31,8 @@ function DailyConfirmedChart(props) {
   }
 
   props.timeseries.forEach((data, index) => {
-    if (index >= 31) {
-      dates.push(moment(data.date.trim(), 'DD MMM').format('DD MMM'));
+    if (index >= 0) {
+      dates.push(moment(data.date.trim(), 'DD/MM/yyyy').format('DD MMM'));
       confirmed.push(
         data.dailyconfirmed - data.dailyrecovered - data.dailydeceased
       );

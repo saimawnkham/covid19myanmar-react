@@ -6,7 +6,7 @@ import Row from './row';
 function Table(props) {
   const [states, setStates] = useState(props.states);
   const [revealedStates, setRevealedStates] = useState({});
-  const [districts, setDistricts] = useState({});
+  // const [districts, setDistricts] = useState({});
   const [count, setCount] = useState(0);
   const [sortData, setSortData] = useState({
     sortColumn: localStorage.getItem('state.sortColumn')
@@ -42,9 +42,9 @@ function Table(props) {
     }
   }, [states]);
 
-  useEffect(() => {
-    setDistricts(props.stateDistrictWiseData);
-  }, [props.stateDistrictWiseData]);
+  // useEffect(() => {
+  //   setDistricts(props.stateDistrictWiseData);
+  // }, [props.stateDistrictWiseData]);
 
   const doSort = (e, props) => {
     const totalRow = states.splice(0, 1);
@@ -259,11 +259,6 @@ function Table(props) {
                     state={state}
                     total={false}
                     reveal={revealedStates[state.state]}
-                    districts={
-                      state.state in districts
-                        ? districts[state.state].districtData
-                        : []
-                    }
                     onHighlightState={props.onHighlightState}
                     onHighlightDistrict={props.onHighlightDistrict}
                     handleReveal={handleReveal}

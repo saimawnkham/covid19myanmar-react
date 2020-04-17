@@ -35,7 +35,6 @@ function MapExplorer({
   const [currentHoveredRegion, setCurrentHoveredRegion] = useState(
     getRegionFromState(states[0])
   );
-  const [testObj, setTestObj] = useState({});
   const [currentMap, setCurrentMap] = useState(mapMeta);
 
   const [statistic, currentMapData] = useMemo(() => {
@@ -111,7 +110,7 @@ function MapExplorer({
 
     const isState = !('district' in regionHighlighted);
     if (isState) {
-      const newMap = MAP_META['India'];
+      const newMap = MAP_META.Myanmar;
       setCurrentMap(newMap);
       const region = getRegionFromState(regionHighlighted.state);
       setHoveredRegion(region.name, newMap);
@@ -153,13 +152,13 @@ function MapExplorer({
 
   const {name, lastupdatedtime} = currentHoveredRegion;
 
-  useEffect(() => {
-    setTestObj(
-      stateTestData.find(
-        (obj) => obj.state === panelRegion.name && obj.totaltested !== ''
-      )
-    );
-  }, [panelRegion, stateTestData, testObj]);
+  // useEffect(() => {
+  //   setTestObj(
+  //     stateTestData.find(
+  //       (obj) => obj.state === panelRegion.name && obj.totaltested !== ''
+  //     )
+  //   );
+  // }, [panelRegion, stateTestData, testObj]);
 
   return (
     <div
@@ -217,31 +216,6 @@ function MapExplorer({
             <h6>{`+${formatNumber(panelRegion.deltadeaths)}`}</h6>
           </div>
         </div>
-
-        {
-          <div
-            className="stats is-purple tested fadeInUp"
-            style={{animationDelay: '2.4s'}}
-          >
-            <h5>{window.innerWidth <= 769 ? 'Tested' : 'Tested'}</h5>
-            <div className="stats-bottom">
-              <h1>{formatNumber(testObj?.totaltested)}</h1>
-            </div>
-            <h6 className="timestamp">
-              {!isNaN(parse(testObj?.updatedon, 'dd/MM/yyyy', new Date()))
-                ? `As of ${format(
-                    parse(testObj?.updatedon, 'dd/MM/yyyy', new Date()),
-                    'dd MMM'
-                  )}`
-                : ''}
-            </h6>
-            {testObj?.totaltested?.length > 1 && (
-              <a href={testObj.source} target="_noblank">
-                <Icon.Link />
-              </a>
-            )}
-          </div>
-        }
       </div>
 
       <div className="meta fadeInUp" style={{animationDelay: '2.4s'}}>

@@ -50,14 +50,13 @@ const validateCTS = (data = []) => {
     .filter((d) => dataTypes.every((dt) => d[dt]) && d.date)
     .filter((d) => dataTypes.every((dt) => Number(d[dt]) >= 0))
     .filter((d) => {
-      const year = today.getFullYear();
-      return new Date(d.date + year) < today;
+      return moment(d.date, "DD/MM/yyyy").toDate() < today;
     });
 };
 
 export const preprocessTimeseries = (timeseries) => {
   return validateCTS(timeseries).map((stat) => ({
-    date: new Date(stat.date + ' 2020'),
+    date: moment(stat.date, "DD/MM/yyyy").toDate(),
     totalconfirmed: +stat.totalconfirmed,
     totalrecovered: +stat.totalrecovered,
     totaldeceased: +stat.totaldeceased,
@@ -79,7 +78,7 @@ export function sliceTimeseriesFromEnd(timeseries, days) {
 }
 
 export const formatNumber = (value) => {
-  const numberFormatter = new Intl.NumberFormat('en-IN');
+  const numberFormatter = new Intl.NumberFormat('en-US');
   return isNaN(value) ? '-' : numberFormatter.format(value);
 };
 
@@ -91,7 +90,7 @@ export const parseStateTimeseries = ({states_daily: data}) => {
 
   const today = moment();
   for (let i = 0; i < data.length; i += 3) {
-    const date = moment(data[i].date, 'DD-MMM-YY');
+    const date = moment(data[i].date, "DD/MM/yyyy");
     // Skip data from the current day
     if (date.isBefore(today, 'Date')) {
       Object.entries(statewiseSeries).forEach(([k, v]) => {

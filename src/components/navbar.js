@@ -19,7 +19,7 @@ function Navbar({pages}) {
       <div className="navbar-left">English</div>
       <div className="navbar-middle">
         <Link to="/">
-          Covid19<span>India</span>
+          Covid19<span>Myanmar</span>
         </Link>
       </div>
       <div

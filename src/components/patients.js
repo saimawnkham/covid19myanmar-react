@@ -88,24 +88,14 @@ function Patients(props) {
       case 'nationality':
         return (patient) => {
           return `patient-card ${
-            patient.nationality === 'India'
-              ? 'is-in'
-              : patient.nationality === 'Myanmar'
+            patient.nationality === 'myanmar'
               ? 'is-mm'
-              : patient.nationality === 'Indonesia'
-              ? 'is-id'
-              : patient.nationality === 'United Kingdom'
-              ? 'is-uk'
-              : patient.nationality === 'United States of America'
+              : patient.nationality === 'french'
+              ? 'is-fr'
+              : patient.nationality === 'swiz'
+              ? 'is-ch'
+              : patient.nationality === 'american'
               ? 'is-us'
-              : patient.nationality === 'Thailand'
-              ? 'is-th'
-              : patient.nationality === 'Phillipines'
-              ? 'is-ph'
-              : patient.nationality === 'Italy'
-              ? 'is-it'
-              : patient.nationality === 'Canada'
-              ? 'is-ca'
               : ''
           } ${props.expand ? '' : 'is-small'}`;
         };

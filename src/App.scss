@@ -2687,36 +2687,6 @@ footer {
       }
     }
 
-    &.is-in {
-      background: url('/flags/india.png');
-      background-size: cover !important;
-      h3 {
-        color: transparent;
-      }
-
-      &:hover {
-        background: $gray-light;
-        h3 {
-          color: $gray-mid;
-        }
-      }
-    }
-
-    &.is-uk {
-      background: url('/flags/uk.png');
-      background-size: cover !important;
-      h3 {
-        color: transparent;
-      }
-
-      &:hover {
-        background: $gray-light;
-        h3 {
-          color: $gray-mid;
-        }
-      }
-    }
-
     &.is-us {
       background: url('/flags/usa.png');
       background-size: cover !important;
@@ -2732,8 +2702,8 @@ footer {
       }
     }
 
-    &.is-th {
-      background: url('/flags/thailand.png');
+    &.is-ch {
+      background: url('/flags/switzerland.png');
       background-size: cover !important;
       h3 {
         color: transparent;
@@ -2747,53 +2717,8 @@ footer {
       }
     }
 
-    &.is-ph {
-      background: url('/flags/philippines.png');
-      background-size: cover !important;
-      h3 {
-        color: transparent;
-      }
-
-      &:hover {
-        background: $gray-light;
-        h3 {
-          color: $gray-mid;
-        }
-      }
-    }
-
-    &.is-it {
-      background: url('/flags/italy.png');
-      background-size: cover !important;
-      h3 {
-        color: transparent;
-      }
-
-      &:hover {
-        background: $gray-light;
-        h3 {
-          color: $gray-mid;
-        }
-      }
-    }
-
-    &.is-ca {
-      background: url('/flags/canada.png');
-      background-size: cover !important;
-      h3 {
-        color: transparent;
-      }
-
-      &:hover {
-        background: $gray-light;
-        h3 {
-          color: $gray-mid;
-        }
-      }
-    }
-
-    &.is-id {
-      background: url('/flags/indonesia.png');
+    &.is-fr {
+      background: url('/flags/french.png');
       background-size: cover !important;
       h3 {
         color: transparent;
@@ -3317,43 +3242,18 @@ body.modal-open {
       background: $purple;
     }
 
-    &.is-in {
-      background: url('/flags/india.png');
+    &.is-fr {
+      background: url('/flags/french.png');
       background-size: cover !important;
     }
 
-    &.is-uk {
-      background: url('/flags/uk.png');
+    &.is-ch {
+      background: url('/flags/switzerland.png');
       background-size: cover !important;
     }
 
     &.is-us {
       background: url('/flags/usa.png');
-      background-size: cover !important;
-    }
-
-    &.is-th {
-      background: url('/flags/thailand.png');
-      background-size: cover !important;
-    }
-
-    &.is-ph {
-      background: url('/flags/philippines.png');
-      background-size: cover !important;
-    }
-
-    &.is-it {
-      background: url('/flags/italy.png');
-    background-size: cover !important;
-    }
-
-    &.is-ca {
-      background: url('/flags/canada.png');
-      background-size: cover !important;
-    }
-
-    &.is-id {
-      background: url('/flags/indonesia.png');
       background-size: cover !important;
     }
 

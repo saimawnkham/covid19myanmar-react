@@ -281,24 +281,14 @@ function PatientDB(props) {
 
           {colorMode === 'nationality' && (
             <div className="legend-left nationality">
-              <div className="circle is-in"></div>
-              <h5 className="is-in">In</h5>
-              <div className="circle is-uk"></div>
-              <h5 className="is-uk">Uk</h5>
-              <div className="circle is-us"></div>
-              <h5 className="is-us">Us</h5>
-              <div className="circle is-th"></div>
-              <h5 className="is-thailand">Th</h5>
-              <div className="circle is-ph"></div>
-              <h5 className="is-ph">Ph</h5>
-              <div className="circle is-it"></div>
-              <h5 className="is-it">It</h5>
-              <div className="circle is-ca"></div>
-              <h5 className="is-ca">Ca</h5>
-              <div className="circle is-id"></div>
-              <h5 className="is-id">Id</h5>
               <div className="circle is-mm"></div>
               <h5 className="is-mm">Mm</h5>
+              <div className="circle is-fr"></div>
+              <h5 className="is-us">Fr</h5>
+              <div className="circle is-ch"></div>
+              <h5 className="is-us">Ch</h5>
+              <div className="circle is-us"></div>
+              <h5 className="is-us">Us</h5>
             </div>
           )}
 

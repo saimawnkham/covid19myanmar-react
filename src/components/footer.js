@@ -5,15 +5,6 @@ function Footer(props) {
   return (
     <footer className="fadeInUp" style={{animationDelay: '2s'}}>
       <h5>We stand with everyone fighting on the frontlines</h5>
-      <div className="link">
-        <a
-          href="https://github.com/covid19india"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          covid19india
-        </a>
-      </div>
       <a
         href="https://github.com/thantthet/covid19myanmar-react"
         className="button github"

@@ -220,7 +220,7 @@ function MapExplorer({
       </div>
 
       <div className="meta fadeInUp" style={{animationDelay: '2.4s'}}>
-        <h2>{name}</h2>
+        <h2>{currentMap.mapType === MAP_TYPES.COUNTRY ? t(`statenames.${name.toLowerCase()}`) : name}</h2>
         {lastupdatedtime && (
           <div
             className={`last-update ${

@@ -7,8 +7,10 @@ import {
 } from '../utils/common-functions';
 import {formatDistance} from 'date-fns';
 import {Tooltip} from 'react-lightweight-tooltip';
+import {useTranslation} from 'react-i18next';
 
 function Row(props) {
+  const {t} = useTranslation();
   const [state, setState] = useState(props.state);
   const [districts, setDistricts] = useState(props.districts);
   const [sortedDistricts, setSortedDistricts] = useState(props.districts);
@@ -109,7 +111,7 @@ function Row(props) {
               <Icon.ChevronDown />
             </span>
             <span className="actual__title-wrapper">
-              {state.state}
+              {t(`statenames.${state.state.toLowerCase()}`)}
               {state.statenotes && (
                 <Tooltip
                   content={[`${state.statenotes}`]}

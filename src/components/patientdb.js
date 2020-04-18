@@ -41,7 +41,7 @@ function PatientDB(props) {
   useEffect(() => {
     async function fetchRawData() {
       const response = await axios.get(
-        'https://raw.githubusercontent.com/thantthet/coivd19-api/master/raw_data.json'
+        'https://raw.githubusercontent.com/thantthet/covid19-api/master/raw_data.json'
       );
       if (response.data) {
         setPatients(response.data.raw_data.reverse());

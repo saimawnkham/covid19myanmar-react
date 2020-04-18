@@ -45,8 +45,8 @@ function Home(props) {
         {data},
         {data: statesDailyResponse},
       ] = await Promise.all([
-        axios.get('https://raw.githubusercontent.com/thantthet/coivd19-api/master/data.json'),
-        axios.get('https://raw.githubusercontent.com/thantthet/coivd19-api/master/states_daily.json'),
+        axios.get('https://raw.githubusercontent.com/thantthet/covid19-api/master/data.json'),
+        axios.get('https://raw.githubusercontent.com/thantthet/covid19-api/master/states_daily.json'),
       ]);
       setStates(data.statewise);
       const ts = parseStateTimeseries(statesDailyResponse);

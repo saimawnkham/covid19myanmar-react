@@ -56,7 +56,7 @@ function Patients(props) {
     try {
       // eslint-disable-next-line
       patients.map((patient, index) => {
-        if (patient.patientnumber === patientIndex) setPatient(patient);
+        if (+patient.patientnumber === +patientIndex) setPatient(patient);
       });
     } catch (err) {
       console.log(err);
@@ -142,14 +142,11 @@ function Patients(props) {
               <h3>{patient.dateannounced ? patient.dateannounced : '?'}</h3>
 
               <h5>Contracted from</h5>
-              <h3
-                className="contracted-from"
-                onClick={() => {
-                  switchPatient(patient.contractedfromwhichpatientsuspected);
-                }}
-              >
+              <h3 className="contracted-from">
                 {patient.contractedfromwhichpatientsuspected
-                  ? patient.contractedfromwhichpatientsuspected
+                  ? patient.contractedfromwhichpatientsuspected.split(',').map((patientid, i) => {
+                    return <span key={i} onClick={() => switchPatient(patientid)}>{patientid},</span>
+                  })
                   : '?'}
               </h3>
 

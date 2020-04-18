@@ -110,7 +110,7 @@ function Table(props) {
           className="table-fineprint fadeInUp"
           style={{animationDelay: '1.5s'}}
         >
-          {t("data compilation info")}, <Link to="/faq">{t('Know More')}</Link>
+          {t("data compilation info")}
         </h5>
         <table className="table fadeInUp" style={{animationDelay: '1.8s'}}>
           <thead>

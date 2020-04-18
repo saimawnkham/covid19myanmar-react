@@ -9,7 +9,7 @@ const state = {
   deltaconfirmed: '0',
   deltadeaths: '0',
   deltarecovered: '0',
-  lastupdatedtime: '30/03/2020 11:27:27',
+  lastupdatedtime: '30/03/2020 11:57:27',
   recovered: '10',
   state: 'Andaman and Nicobar Islands',
   statecode: 'AN',

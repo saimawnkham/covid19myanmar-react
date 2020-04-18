@@ -150,6 +150,17 @@ function Patients(props) {
                   : '?'}
               </h3>
 
+              <h5>Detected City</h5>
+              <h3>{patient.detectedcity ? patient.detectedcity : '?'}</h3>
+
+              <h5>Detected District</h5>
+              <h3>
+                {patient.detecteddistrict ? patient.detecteddistrict : '?'}
+              </h3>
+
+              <h5>Detected State</h5>
+              <h3>{patient.detectedstate ? patient.detectedstate : '?'}</h3>
+
               <h5>Nationality</h5>
               <h3>{patient.nationality ? patient.nationality : '?'}</h3>
 

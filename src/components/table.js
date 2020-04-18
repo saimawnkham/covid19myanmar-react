@@ -167,7 +167,7 @@ function Table(props) {
                 <div className="heading-content">
                   <abbr
                     className={`${window.innerWidth <= 769 ? 'is-blue' : ''}`}
-                    title={t("Active")}
+                    title={t("active.full")}
                   >
                     {window.innerWidth <= 769
                       ? window.innerWidth <= 375
@@ -193,7 +193,7 @@ function Table(props) {
                 <div className="heading-content">
                   <abbr
                     className={`${window.innerWidth <= 769 ? 'is-green' : ''}`}
-                    title="Recovered"
+                    title={t("recovered.full")}
                   >
                     {window.innerWidth <= 769
                       ? window.innerWidth <= 375

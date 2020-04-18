@@ -95,10 +95,10 @@ function Table(props) {
   };
 
   const handleReveal = (state) => {
-    setRevealedStates({
-      ...revealedStates,
-      [state]: !revealedStates[state],
-    });
+    // setRevealedStates({
+    //   ...revealedStates,
+    //   [state]: !revealedStates[state],
+    // });
   };
 
   doSort();

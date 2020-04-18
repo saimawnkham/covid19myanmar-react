@@ -1,5 +1,6 @@
 import React from 'react';
 import * as Icon from 'react-feather';
+import Popup from './popup';
 
 function Footer(props) {
   return (
@@ -23,6 +24,7 @@ function Footer(props) {
         <Icon.Database />
         <span>Crowdsourced Patient Database&nbsp;</span>
       </a>
+      <Popup />
     </footer>
   );
 }

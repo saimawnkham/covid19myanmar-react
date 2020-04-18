@@ -5,8 +5,11 @@ import moment from 'moment';
 import {sliceTimeseriesFromEnd} from '../utils/common-functions';
 import {useResizeObserver} from '../utils/hooks';
 import {formatNumber} from '../utils/common-functions';
+import {useTranslation} from 'react-i18next';
 
 function TimeSeries(props) {
+  const {t} = useTranslation();
+
   const [lastDaysCount, setLastDaysCount] = useState(
     window.innerWidth > 512 ? Infinity : 30
   );
@@ -391,7 +394,7 @@ function TimeSeries(props) {
       <div className="timeseries">
         <div className="svg-parent" ref={wrapperRef}>
           <div className="stats">
-            <h5 className={`${!moving ? 'title' : ''}`}>Confirmed</h5>
+            <h5 className={`${!moving ? 'title' : ''}`}>{t("confirmed.full")}</h5>
             <h5 className={`${moving ? 'title' : ''}`}>{`${dateStr}`}</h5>
             <div className="stats-bottom">
               <h2>{formatNumber(datapoint[chartKey1])}</h2>
@@ -403,7 +406,7 @@ function TimeSeries(props) {
 
         <div className="svg-parent is-green">
           <div className="stats is-green">
-            <h5 className={`${!moving ? 'title' : ''}`}>Recovered</h5>
+            <h5 className={`${!moving ? 'title' : ''}`}>{t("recovered.full")}</h5>
             <h5 className={`${moving ? 'title' : ''}`}>{`${dateStr}`}</h5>
             <div className="stats-bottom">
               <h2>{formatNumber(datapoint[chartKey2])}</h2>
@@ -415,7 +418,7 @@ function TimeSeries(props) {
 
         <div className="svg-parent is-gray">
           <div className="stats is-gray">
-            <h5 className={`${!moving ? 'title' : ''}`}>Deceased</h5>
+            <h5 className={`${!moving ? 'title' : ''}`}>{t("deceased.full")}</h5>
             <h5 className={`${moving ? 'title' : ''}`}>{`${dateStr}`}</h5>
             <div className="stats-bottom">
               <h2>{formatNumber(datapoint[chartKey3])}</h2>
@@ -432,23 +435,23 @@ function TimeSeries(props) {
           onClick={() => setLastDaysCount(Infinity)}
           className={lastDaysCount === Infinity ? 'selected' : ''}
         >
-          Beginning
+          {t("Beginning")}
         </button>
         <button
           type="button"
           onClick={() => setLastDaysCount(30)}
           className={lastDaysCount === 30 ? 'selected' : ''}
-          aria-label="1 month"
+          aria-label={t("1 month")}
         >
-          1 Month
+          {t("1 Month")}
         </button>
         <button
           type="button"
           onClick={() => setLastDaysCount(14)}
           className={lastDaysCount === 14 ? 'selected' : ''}
-          aria-label="14 days"
+          aria-label={t("14 days")}
         >
-          2 Weeks
+          {t("2 Weeks")}
         </button>
       </div>
     </div>

@@ -1,6 +1,7 @@
 import React, {useState, useCallback, useRef} from 'react';
 import * as Icon from 'react-feather';
 import {Link} from 'react-router-dom';
+import {useTranslation} from 'react-i18next';
 import {
   STATE_CODES_ARRAY,
   DISTRICTS_ARRAY,
@@ -45,6 +46,8 @@ const essentialsEngine = new Bloodhound({
 });
 
 function Search(props) {
+  const {t} = useTranslation();
+  
   const [searchValue, setSearchValue] = useState('');
   const [expand, setExpand] = useState(false);
   const [results, setResults] = useState([]);
@@ -117,7 +120,7 @@ function Search(props) {
 
   return (
     <div className="Search">
-      <label>Search your city, resources, etc</label>
+      <label>{t("search.info")}</label>
       <div className="line"></div>
       <input
         type="text"

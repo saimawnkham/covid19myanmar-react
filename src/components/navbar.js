@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
+import LanguageSwitcher from './languageswitcher';
+import {useTranslation} from 'react-i18next';
 
 const navLinkProps = (path, animationDelay) => ({
   className: `fadeInUp ${window.location.pathname === path ? 'focused' : ''}`,
@@ -9,6 +11,8 @@ const navLinkProps = (path, animationDelay) => ({
 });
 
 function Navbar({pages}) {
+  const {t} = useTranslation();
+
   const [expand, setExpand] = useState(false);
 
   return (
@@ -16,7 +20,7 @@ function Navbar({pages}) {
       className="Navbar"
       style={{width: window.innerWidth > 769 && expand ? '6rem' : ''}}
     >
-      <div className="navbar-left">English</div>
+      <div className="navbar-left"><LanguageSwitcher /></div>
       <div className="navbar-middle">
         <Link to="/">
           Covid19<span>Myanmar</span>
@@ -32,7 +36,7 @@ function Navbar({pages}) {
           setExpand(!expand);
         }}
       >
-        {expand ? 'Close' : 'Menu'}
+        {expand ? t('Close') : t('Menu')}
       </div>
       {expand && (
         <div

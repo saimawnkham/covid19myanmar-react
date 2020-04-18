@@ -7,11 +7,8 @@ import './App.scss';
 
 import Home from './components/home';
 import Navbar from './components/navbar';
-import Links from './components/links';
-import FAQ from './components/faq';
 import PatientDB from './components/patientdb';
 import DeepDive from './components/deepdive';
-import Resources from './components/resources';
 import State from './components/state';
 
 function App() {

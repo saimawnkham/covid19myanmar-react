@@ -55,7 +55,7 @@
     "short": "Rcvrd",
     "full": "Recovered"
   },
-  "states": {
+  "statenames": {
     "yangon": "Yangon",
     "mandalay": "Mandalay",
     "ayeyarwady": "Ayeyarwady",

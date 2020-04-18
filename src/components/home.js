@@ -215,7 +215,7 @@ function Home(props) {
                           value={JSON.stringify(s)}
                           selected={s.statecode === activeStateCode}
                         >
-                          {s.state === 'Total' ? t('All States') : t(`states.${s.state.toLowerCase()}`)}
+                          {s.state === 'Total' ? t('All States') : t(`statenames.${s.state.toLowerCase()}`)}
                         </option>
                       );
                     })}

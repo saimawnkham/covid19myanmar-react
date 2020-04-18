@@ -120,7 +120,7 @@ function Table(props) {
                 onClick={(e) => handleSort(e, props)}
               >
                 <div className="heading-content">
-                  <abbr title="State">{t('states')}</abbr>
+                  <abbr title="State">{t('states.header')}</abbr>
                   <div
                     style={{
                       display:
@@ -139,13 +139,13 @@ function Table(props) {
                 <div className="heading-content">
                   <abbr
                     className={`${window.innerWidth <= 769 ? 'is-cherry' : ''}`}
-                    title={t('Confirmed')}
+                    title={t('confirmed.full')}
                   >
                     {window.innerWidth <= 769
                       ? window.innerWidth <= 375
-                        ? t('C')
-                        : t('Cnfmd')
-                      : t('Confirmed')}
+                        ? t('confirmed.shorter')
+                        : t('confirmed.short')
+                      : t('confirmed.full')}
                   </abbr>
                   <div
                     style={{

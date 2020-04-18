@@ -25,7 +25,7 @@ export const formatDate = (unformattedDate) => {
   const month = unformattedDate.slice(3, 5);
   const year = unformattedDate.slice(6, 10);
   const time = unformattedDate.slice(11);
-  return `${year}-${month}-${day}T${time}+05:30`;
+  return `${year}-${month}-${day}T${time}+06:30`;
 };
 
 export const formatDateAbsolute = (unformattedDate) => {

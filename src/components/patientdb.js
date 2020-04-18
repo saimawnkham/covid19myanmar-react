@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {useLocation} from 'react-router-dom';
 import axios from 'axios';
 import {format, parse} from 'date-fns';
+import {useTranslation} from 'react-i18next';
 
 import Patients from './patients';
 import DownloadBlock from './downloadblock';
@@ -17,6 +18,7 @@ function filterByObject(obj, filters) {
 }
 
 function PatientDB(props) {
+  const {t} = useTranslation();
   const [fetched, setFetched] = useState(false);
   const [patients, setPatients] = useState([]);
   const [filteredPatients, setFilteredPatients] = useState([]);
@@ -313,7 +315,7 @@ function PatientDB(props) {
 
       <div className="header fadeInUp" style={{animationDelay: '0.3s'}}>
         <div>
-          <h1>Demographics</h1>
+          <h1>{t('demographics.title')}</h1>
           {/* <h3>No. of Patients: {patients.length}</h3>*/}
 
           <div className="deep-dive">

@@ -88,5 +88,8 @@
     "demographics": "Demographics",
     "state": "State"
   },
-  "Myanmar": "Myanmar"
+  "Myanmar": "Myanmar",
+  "demographics": {
+    "title": "Demographics"
+  }
 }

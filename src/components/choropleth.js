@@ -174,6 +174,7 @@ function ChoroplethMap({
       setHoveredRegion,
       setSelectedRegion,
       isCountryLoaded,
+      t,
     ]
   );
 

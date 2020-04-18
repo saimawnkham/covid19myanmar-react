@@ -331,21 +331,16 @@ function PatientDB(props) {
           </div>
         </div>
         <h6 className="disclaimer">
-          Some of the data provided might be missing/unknown as the details have
-          not been shared by the state/central governments.
+        {t('demographics.disclaimer')}
         </h6>
       </div>
 
       <div className="reminder fadeInUp" style={{animationDelay: '1s'}}>
         <p>
-          It is important that we do not think of these as just tiny boxes,
-          numbers, or just another part of statistics - among these are our
-          neighbors, our teachers, our healthcare workers, our supermarket
-          vendors, our friends, our co-workers, our children or our
-          grandparents.
-          <br />
-          <br />
-          Among these are our people.
+        {t('demographics.reminder.line1')}
+        <br/>
+        <br/>
+        {t('demographics.reminder.line2')}
         </p>
       </div>
 

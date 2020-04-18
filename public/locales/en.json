@@ -55,7 +55,8 @@
     "short": "Rcvrd",
     "full": "Recovered"
   },
-  "states": {
+  "states": "States",
+  "statenames": {
     "yangon": "Yangon",
     "mandalay": "Mandalay",
     "ayeyarwady": "Ayeyarwady",
@@ -70,8 +71,7 @@
     "magway": "Magway",
     "sagaing": "Sagaing",
     "tanintharyi": "Tanintharyi",
-    "naypyidaw": "Naypyidaw",
-    "header": "States"
+    "naypyidaw": "Naypyidaw"
   },
   "chart": {
     "mode": {

@@ -1,8 +1,9 @@
-import React, {useCallback, useEffect, useRef, useState} from 'react';
 import * as d3 from 'd3';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import * as topojson from 'topojson';
-import {MAP_TYPES} from '../constants';
+import { MAP_TYPES } from '../constants';
 import legend from './legend';
+import {useTranslation} from 'react-i18next';
 
 const propertyFieldMap = {
   country: 'ST',
@@ -19,6 +20,7 @@ function ChoroplethMap({
   setSelectedRegion,
   isCountryLoaded,
 }) {
+  const {t} = useTranslation();
   const choroplethMap = useRef(null);
   const choroplethLegend = useRef(null);
   const [svgRenderCount, setSvgRenderCount] = useState(0);
@@ -78,7 +80,7 @@ function ChoroplethMap({
         .append(() =>
           legend({
             color: colorScale,
-            title: 'Confirmed Cases',
+            title: t('map.legends.confirmedcases'),
             width: barWidth,
             height: 0.8 * heightLegend,
             ticks: 6,

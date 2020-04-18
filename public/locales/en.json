@@ -1,0 +1,91 @@
+{
+  "Know More": "Know More",
+  "Deaths": "Deaths",
+  "ago": "{{time}} ago",
+  "Select Language": "Select Language",
+  "map": {
+    "legends": {
+      "confirmedcases": "Confirmed Cases"
+    },
+    "tap": {
+      "district": "Tap over a district for more details",
+      "state": "Tap over a state for more details"
+    },
+    "hover": {
+      "state": "Hover over a state for more details",
+      "district": "Hover over a district for more details"
+    }
+  },
+  "Scale Modes": "Scale Modes",
+  "All States": "All States",
+  "1 month": "1 month",
+  "Map": "{{name}} Map",
+  "Last updated": "Last updated",
+  "Daily": "Daily",
+  "Cumulative": "Cumulative",
+  "Beginning": "Beginning",
+  "2 Weeks": "2 Weeks",
+  "14 days": "14 days",
+  "1 Month": "1 Month",
+  "Spread Trends": "Spread Trends",
+  "States Affected": "{{count}} States/UTS Affected",
+  "Menu": "Menu",
+  "Close": "Close",
+  "search": {
+    "info": "Search your city, resources, etc"
+  },
+  "data compilation info": "Compiled from State Govt. numbers",
+  "active": {
+    "shorter": "A",
+    "short": "Actv",
+    "full": "Active"
+  },
+  "confirmed": {
+    "shorter": "C",
+    "short": "Cnfmd",
+    "full": "Confirmed"
+  },
+  "deceased": {
+    "shorter": "D",
+    "short": "Dcsd",
+    "full": "Deceased"
+  },
+  "recovered": {
+    "shorter": "R",
+    "short": "Rcvrd",
+    "full": "Recovered"
+  },
+  "states": {
+    "yangon": "Yangon",
+    "mandalay": "Mandalay",
+    "ayeyarwady": "Ayeyarwady",
+    "bago": "Bago",
+    "chin": "Chin",
+    "kachin": "Kachin",
+    "kayah": "Kayah",
+    "kayin": "Kayin",
+    "mon": "Mon",
+    "rakhine": "Rakhine",
+    "shan": "Shan",
+    "magway": "Magway",
+    "sagaing": "Sagaing",
+    "tanintharyi": "Tanintharyi",
+    "naypyidaw": "Naypyidaw"
+  },
+  "chart": {
+    "mode": {
+      "uniform": "Uniform",
+      "logarithmic": "Logarithmic"
+    }
+  },
+  "menu": {
+    "deepdrive": "Deep Dive",
+    "essentials": "Essentials",
+    "faq": "FAQ",
+    "helpfulLinks": "Helpful Links",
+    "home": "Home",
+    "demographics": "Demographics",
+    "state": "State"
+  },
+  "Myanmar": "Myanmar"
+}

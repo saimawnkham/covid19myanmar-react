@@ -9,6 +9,7 @@ import {
   parseStateTimeseries,
 } from '../utils/common-functions';
 import * as Icon from 'react-feather';
+import {useTranslation} from 'react-i18next';
 
 import Table from './table';
 import Level from './level';
@@ -20,6 +21,8 @@ import Search from './search';
 import Footer from './footer';
 
 function Home(props) {
+  const {t} = useTranslation();
+
   const [states, setStates] = useState([]);
   const [fetched, setFetched] = useState(false);
   const [graphOption, setGraphOption] = useState(1);
@@ -145,7 +148,7 @@ function Home(props) {
                 style={{animationDelay: '2.5s'}}
                 ref={refs[2]}
               >
-                <h1>Spread Trends</h1>
+                <h1>{t("Spread Trends")}</h1>
                 <div className="tabs">
                   <div
                     className={`tab ${graphOption === 1 ? 'focused' : ''}`}
@@ -153,7 +156,7 @@ function Home(props) {
                       setGraphOption(1);
                     }}
                   >
-                    <h4>Cumulative</h4>
+                    <h4>{t("Cumulative")}</h4>
                   </div>
                   <div
                     className={`tab ${graphOption === 2 ? 'focused' : ''}`}
@@ -161,14 +164,14 @@ function Home(props) {
                       setGraphOption(2);
                     }}
                   >
-                    <h4>Daily</h4>
+                    <h4>{t("Daily")}</h4>
                   </div>
                 </div>
 
                 <div className="scale-modes">
-                  <label className="main">Scale Modes</label>
+                  <label className="main">{t("Scale Modes")}</label>
                   <div className="timeseries-mode">
-                    <label htmlFor="timeseries-mode">Uniform</label>
+                    <label htmlFor="timeseries-mode">{t("chart.mode.uniform")}</label>
                     <input
                       id="timeseries-mode"
                       type="checkbox"
@@ -185,7 +188,7 @@ function Home(props) {
                       graphOption !== 1 ? 'disabled' : ''
                     }`}
                   >
-                    <label htmlFor="timeseries-logmode">Logarithmic</label>
+                    <label htmlFor="timeseries-logmode">{t("chart.mode.logarithmic")}</label>
                     <input
                       id="timeseries-logmode"
                       type="checkbox"
@@ -212,7 +215,7 @@ function Home(props) {
                           value={JSON.stringify(s)}
                           selected={s.statecode === activeStateCode}
                         >
-                          {s.state === 'Total' ? 'All States' : s.state}
+                          {s.state === 'Total' ? t('All States') : t(`states.${s.state.toLowerCase()}`)}
                         </option>
                       );
                     })}

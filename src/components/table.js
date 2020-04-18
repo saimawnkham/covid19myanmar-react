@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
+import {useTranslation} from 'react-i18next';
 
 import Row from './row';
 
 function Table(props) {
+  const {t} = useTranslation();
   const [states, setStates] = useState(props.states);
   const [revealedStates, setRevealedStates] = useState({});
   // const [districts, setDistricts] = useState({});
@@ -108,7 +110,7 @@ function Table(props) {
           className="table-fineprint fadeInUp"
           style={{animationDelay: '1.5s'}}
         >
-          Compiled from State Govt. numbers, <Link to="/faq">know more!</Link>
+          {t("data compilation info")}, <Link to="/faq">{t('Know More')}</Link>
         </h5>
         <table className="table fadeInUp" style={{animationDelay: '1.8s'}}>
           <thead>
@@ -118,7 +120,7 @@ function Table(props) {
                 onClick={(e) => handleSort(e, props)}
               >
                 <div className="heading-content">
-                  <abbr title="State">State/UT</abbr>
+                  <abbr title="State">{t('states')}</abbr>
                   <div
                     style={{
                       display:
@@ -137,13 +139,13 @@ function Table(props) {
                 <div className="heading-content">
                   <abbr
                     className={`${window.innerWidth <= 769 ? 'is-cherry' : ''}`}
-                    title="Confirmed"
+                    title={t('Confirmed')}
                   >
                     {window.innerWidth <= 769
                       ? window.innerWidth <= 375
-                        ? 'C'
-                        : 'Cnfmd'
-                      : 'Confirmed'}
+                        ? t('C')
+                        : t('Cnfmd')
+                      : t('Confirmed')}
                   </abbr>
                   <div
                     style={{
@@ -165,13 +167,13 @@ function Table(props) {
                 <div className="heading-content">
                   <abbr
                     className={`${window.innerWidth <= 769 ? 'is-blue' : ''}`}
-                    title="Active"
+                    title={t("Active")}
                   >
                     {window.innerWidth <= 769
                       ? window.innerWidth <= 375
-                        ? 'A'
-                        : 'Actv'
-                      : 'Active'}
+                        ? t('active.shorter')
+                        : t('active.short')
+                      : t('active.full')}
                   </abbr>
                   <div
                     style={{
@@ -195,9 +197,9 @@ function Table(props) {
                   >
                     {window.innerWidth <= 769
                       ? window.innerWidth <= 375
-                        ? 'R'
-                        : 'Rcvrd'
-                      : 'Recovered'}
+                        ? t('recovered.shorter')
+                        : t('recovered.short')
+                      : t('recovered.full')}
                   </abbr>
                   <div
                     className={
@@ -224,13 +226,13 @@ function Table(props) {
                 <div className="heading-content">
                   <abbr
                     className={`${window.innerWidth <= 769 ? 'is-gray' : ''}`}
-                    title="Deaths"
+                    title={t("Deaths")}
                   >
                     {window.innerWidth <= 769
                       ? window.innerWidth <= 375
-                        ? 'D'
-                        : 'Dcsd'
-                      : 'Deceased'}
+                        ? t('deceased.shorter')
+                        : t('deceased.short')
+                      : t('deceased.full')}
                   </abbr>
                   <div
                     style={{
@@ -281,7 +283,7 @@ function Table(props) {
           </tbody>
         </table>
         <h5 className="table-fineprint fadeInUp" style={{animationDelay: '1s'}}>
-          {count} States/UTS Affected
+          {t('States Affected', {count})}
         </h5>
       </React.Fragment>
     );

@@ -1,6 +1,7 @@
 import React from 'react';
 import {Route, Redirect} from 'react-router-dom';
 import {AnimatedSwitch} from 'react-router-transition';
+import {useTranslation} from 'react-i18next';
 
 import './App.scss';
 
@@ -14,53 +15,55 @@ import Resources from './components/resources';
 import State from './components/state';
 
 function App() {
+  const {t} = useTranslation();
+
   const pages = [
     {
       pageLink: '/',
       view: Home,
-      displayName: 'Home',
+      displayName: t('menu.home'),
       animationDelayForNavbar: 0.2,
       showInNavbar: true,
     },
     {
       pageLink: '/demographics',
       view: PatientDB,
-      displayName: 'Demographics',
+      displayName: t('menu.demographics'),
       animationDelayForNavbar: 0.3,
       showInNavbar: true,
     },
     {
       pageLink: '/deepdive',
       view: DeepDive,
-      displayName: 'Deep Dive',
+      displayName: t('menu.deepdrive'),
       animationDelayForNavbar: 0.4,
       showInNavbar: true,
     },
     {
       pageLink: '/links',
       view: Links,
-      displayName: 'Helpful Links',
+      displayName: t('menu.helpfulLinks'),
       animationDelayForNavbar: 0.5,
       showInNavbar: true,
     },
     {
       pageLink: '/essentials',
       view: Resources,
-      displayName: 'Essentials',
+      displayName: t('menu.essentials'),
       animationDelayForNavbar: 0.6,
       showInNavbar: true,
     },
     {
       pageLink: '/faq',
       view: FAQ,
-      displayName: 'FAQ',
+      displayName: t('menu.faq'),
       animationDelayForNavbar: 0.7,
       showInNavbar: true,
     },
     {
       pageLink: '/state/:stateCode',
       view: State,
-      displayName: 'State',
+      displayName: t('menu.state'),
       animationDelayForNavbar: 0.8,
       showInNavbar: false,
     },

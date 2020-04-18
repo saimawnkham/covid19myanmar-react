@@ -4,6 +4,7 @@ import {MAP_TYPES, MAP_META} from '../constants';
 import {formatDate, formatDateAbsolute} from '../utils/common-functions';
 import {formatDistance} from 'date-fns';
 import {formatNumber} from '../utils/common-functions';
+import {useTranslation} from 'react-i18next';
 
 const getRegionFromState = (state) => {
   if (!state) return;
@@ -29,6 +30,7 @@ function MapExplorer({
   onMapHighlightChange,
   isCountryLoaded,
 }) {
+  const {t} = useTranslation();
   const [selectedRegion, setSelectedRegion] = useState({});
   const [panelRegion, setPanelRegion] = useState(getRegionFromState(states[0]));
   const [currentHoveredRegion, setCurrentHoveredRegion] = useState(
@@ -166,17 +168,17 @@ function MapExplorer({
       ref={forwardRef}
     >
       <div className="header">
-        <h1>{currentMap.name} Map</h1>
+        <h1>{t("Map", {name: t(currentMap.name)})}</h1>
         <h6>
-          {window.innerWidth <= 769 ? 'Tap' : 'Hover'} over a{' '}
-          {currentMap.mapType === MAP_TYPES.COUNTRY ? 'state/UT' : 'district'}{' '}
-          for more details
+        {window.innerWidth <= 769 ?
+        (currentMap.mapType === MAP_TYPES.COUNTRY ? t('map.tap.state') : t('map.tap.district'))
+        : (currentMap.mapType === MAP_TYPES.COUNTRY ? t('map.hover.state') : t('map.hover.district'))}
         </h6>
       </div>
 
       <div className="map-stats">
         <div className="stats fadeInUp" style={{animationDelay: '2s'}}>
-          <h5>{window.innerWidth <= 769 ? 'Cnfmd' : 'Confirmed'}</h5>
+          <h5>{window.innerWidth <= 769 ? t('confirmed.short') : t('confirmed.full')}</h5>
           <div className="stats-bottom">
             <h1>{formatNumber(panelRegion.confirmed)}</h1>
             <h6>{`+${formatNumber(panelRegion.deltaconfirmed)}`}</h6>
@@ -187,7 +189,7 @@ function MapExplorer({
           className="stats is-blue fadeInUp"
           style={{animationDelay: '2.1s'}}
         >
-          <h5>{window.innerWidth <= 769 ? 'Actv' : 'Active'}</h5>
+          <h5>{window.innerWidth <= 769 ? t('active.short') : t('active.full')}</h5>
           <div className="stats-bottom">
             <h1>{formatNumber(panelRegion.active)}</h1>
             <h6>{` `}</h6>
@@ -198,7 +200,7 @@ function MapExplorer({
           className="stats is-green fadeInUp"
           style={{animationDelay: '2.2s'}}
         >
-          <h5>{window.innerWidth <= 769 ? 'Rcvrd' : 'Recovered'}</h5>
+          <h5>{window.innerWidth <= 769 ? t('recovered.short') : t('recovered.full')}</h5>
           <div className="stats-bottom">
             <h1>{formatNumber(panelRegion.recovered)}</h1>
             <h6>{`+${formatNumber(panelRegion.deltarecovered)}`}</h6>
@@ -209,7 +211,7 @@ function MapExplorer({
           className="stats is-gray fadeInUp"
           style={{animationDelay: '2.3s'}}
         >
-          <h5>{window.innerWidth <= 769 ? 'Dcsd' : 'Deceased'}</h5>
+          <h5>{window.innerWidth <= 769 ? t('deceased.short') : t('deceased.full')}</h5>
           <div className="stats-bottom">
             <h1>{formatNumber(panelRegion.deaths)}</h1>
             <h6>{`+${formatNumber(panelRegion.deltadeaths)}`}</h6>
@@ -227,7 +229,7 @@ function MapExplorer({
                 : 'state-last-update'
             }`}
           >
-            <h6>Last updated</h6>
+            <h6>{t("Last updated")}</h6>
             <h3
               title={
                 isNaN(Date.parse(formatDate(lastupdatedtime)))
@@ -235,12 +237,12 @@ function MapExplorer({
                   : formatDateAbsolute(lastupdatedtime)
               }
             >
-              {isNaN(Date.parse(formatDate(lastupdatedtime)))
+              {t('ago', {time: isNaN(Date.parse(formatDate(lastupdatedtime)))
                 ? ''
                 : formatDistance(
                     new Date(formatDate(lastupdatedtime)),
                     new Date()
-                  ) + ' ago'}
+                  )})}
             </h3>
           </div>
         )}

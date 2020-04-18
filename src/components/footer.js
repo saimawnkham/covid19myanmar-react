@@ -13,16 +13,16 @@ function Footer(props) {
         rel="noopener noreferrer"
       >
         <Icon.GitHub />
-        <span>Open Sourced on GitHub</span>
+        <span>A fork of covid19india.org</span>
       </a>
       <a
         className="button excel"
-        href="https://docs.google.com/spreadsheets/d/1-Csmn_rXTQvnkJR8tnFkQEyKBnhq8fz-YxyHidhONiI/"
+        href="http://covidmyanmar.com"
         target="_blank"
         rel="noopener noreferrer"
       >
         <Icon.Database />
-        <span>Crowdsourced Patient Database&nbsp;</span>
+        <span>dataset by covidmyanmar.com</span>
       </a>
       <Popup />
     </footer>

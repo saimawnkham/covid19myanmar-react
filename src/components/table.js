@@ -139,7 +139,7 @@ function Table(props) {
                 <div className="heading-content">
                   <abbr
                     className={`${window.innerWidth <= 769 ? 'is-cherry' : ''}`}
-                    title={t('confirmed.full')}
+                    title="Confirmed"
                   >
                     {window.innerWidth <= 769
                       ? window.innerWidth <= 375
@@ -167,7 +167,7 @@ function Table(props) {
                 <div className="heading-content">
                   <abbr
                     className={`${window.innerWidth <= 769 ? 'is-blue' : ''}`}
-                    title={t("active.full")}
+                    title="Active"
                   >
                     {window.innerWidth <= 769
                       ? window.innerWidth <= 375
@@ -193,7 +193,7 @@ function Table(props) {
                 <div className="heading-content">
                   <abbr
                     className={`${window.innerWidth <= 769 ? 'is-green' : ''}`}
-                    title={t("recovered.full")}
+                    title="Recovered"
                   >
                     {window.innerWidth <= 769
                       ? window.innerWidth <= 375
@@ -226,7 +226,7 @@ function Table(props) {
                 <div className="heading-content">
                   <abbr
                     className={`${window.innerWidth <= 769 ? 'is-gray' : ''}`}
-                    title={t("Deaths")}
+                    title="Deaths"
                   >
                     {window.innerWidth <= 769
                       ? window.innerWidth <= 375

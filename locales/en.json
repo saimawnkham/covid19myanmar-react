@@ -88,5 +88,13 @@
     "demographics": "Demographics",
     "state": "State"
   },
-  "Myanmar": "Myanmar"
+  "Myanmar": "Myanmar",
+  "demographics": {
+    "title": "Demographics",
+    "disclaimer": "Some of the data provided might be missing/unknown as the details have not been shared by the state/central governments.",
+    "reminder": {
+      "line1": "It is important that we do not think of these as just tiny boxes, numbers, or just another part of statistics - among these are our neighbors, our teachers, our healthcare workers, our supermarket vendors, our friends, our co-workers, our children or our grandparents.",
+      "line2": "Among these are our people."
+    }
+  }
 }

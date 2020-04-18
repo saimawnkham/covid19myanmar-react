@@ -40,27 +40,6 @@ function App() {
       showInNavbar: true,
     },
     {
-      pageLink: '/links',
-      view: Links,
-      displayName: t('menu.helpfulLinks'),
-      animationDelayForNavbar: 0.5,
-      showInNavbar: true,
-    },
-    {
-      pageLink: '/essentials',
-      view: Resources,
-      displayName: t('menu.essentials'),
-      animationDelayForNavbar: 0.6,
-      showInNavbar: true,
-    },
-    {
-      pageLink: '/faq',
-      view: FAQ,
-      displayName: t('menu.faq'),
-      animationDelayForNavbar: 0.7,
-      showInNavbar: true,
-    },
-    {
       pageLink: '/state/:stateCode',
       view: State,
       displayName: t('menu.state'),

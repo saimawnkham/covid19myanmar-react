@@ -17,7 +17,6 @@ import MapExplorer from './mapexplorer';
 import TimeSeries from './timeseries';
 import Minigraph from './minigraph';
 import Updates from './updates';
-import Search from './search';
 import Footer from './footer';
 
 function Home(props) {
@@ -86,7 +85,6 @@ function Home(props) {
       <div className="Home">
         <div className="home-left">
           <div className="header fadeInUp" style={{animationDelay: '1s'}}>
-            <Search />
             <div className="actions">
               <h5>
                 {isNaN(Date.parse(formatDate(lastUpdated)))

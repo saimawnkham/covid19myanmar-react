@@ -8,6 +8,7 @@ import {
 import {formatDistance} from 'date-fns';
 import {Tooltip} from 'react-lightweight-tooltip';
 import {useTranslation} from 'react-i18next';
+import {Link} from 'react-router-dom';
 
 function Row(props) {
   const {t} = useTranslation();
@@ -34,6 +35,10 @@ function Row(props) {
 
   const handleReveal = () => {
     props.handleReveal(props.state.state);
+  };
+
+  const handleTooltip = (e) => {
+    e.stopPropagation();
   };
 
   const sortDistricts = useCallback(
@@ -113,27 +118,31 @@ function Row(props) {
             <span className="actual__title-wrapper">
               {t(`statenames.${state.state.toLowerCase()}`)}
               {state.statenotes && (
-                <Tooltip
-                  content={[`${state.statenotes}`]}
-                  styles={{
-                    tooltip: {
-                      background: '#000',
-                      borderRadius: '5px',
-                      fontSize: '1rem',
-                      left: '250%',
-                      opacity: 1,
-                      padding: '0.5rem',
-                    },
-                    wrapper: {
-                      cursor: 'cursor',
-                      display: 'inline-block',
-                      position: 'relative',
-                      textAlign: 'center',
-                    },
-                  }}
-                >
-                  <Icon.Info />
-                </Tooltip>
+                <span onClick={handleTooltip}>
+                  <Tooltip
+                    content={[`${state.statenotes}`]}
+                    styles={{
+                      tooltip: {
+                        background: '#000',
+                        borderRadius: '10px',
+                        fontSize: '.8em',
+                        left: '250%',
+                        opacity: 0.65,
+                      },
+                      wrapper: {
+                        cursor: 'cursor',
+                        display: 'inline-block',
+                        position: 'relative',
+                        textAlign: 'center',
+                      },
+                      arrow: {
+                        left: '37%',
+                      },
+                    }}
+                  >
+                    <Icon.Info />
+                  </Tooltip>
+                </span>
               )}
             </span>
           </div>
@@ -257,6 +266,14 @@ function Row(props) {
               )}
             </div>
           </div>
+        </td>
+        <td className="state-page-link" colSpan={3}>
+          <Link to={`state/${state.statecode}`}>
+            <div>
+              <abbr>Visit state page</abbr>
+              <Icon.ArrowRightCircle />
+            </div>
+          </Link>
         </td>
       </tr>
 

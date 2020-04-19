@@ -170,11 +170,6 @@ function Patients(props) {
               <h5>Gender</h5>
               <h3>{patient.gender ? patient.gender : '?'}</h3>
 
-              <h5>State Patient Number</h5>
-              <h3>
-                {patient.statepatientnumber ? patient.statepatientnumber : '?'}
-              </h3>
-
               <h5>Type of transmission</h5>
               <h3>
                 {patient.typeoftransmission ? patient.typeoftransmission : '?'}

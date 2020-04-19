@@ -5,6 +5,6 @@ export default {
       return undefined
     }
     // defaults
-    return 'mm';
+    return 'my-MM';
   }
 };

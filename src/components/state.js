@@ -1,12 +1,11 @@
 import axios from 'axios';
-import {format, parse} from 'date-fns';
 import React, {useEffect, useRef, useState} from 'react';
 import {Link, useParams} from 'react-router-dom';
 import * as Icon from 'react-feather';
+import {useTranslation} from 'react-i18next';
 
 import {
   formatDateAbsolute,
-  formatNumber,
   parseStateTimeseries,
 } from '../utils/common-functions';
 import {MAP_META, STATE_CODES} from '../constants';
@@ -20,6 +19,7 @@ import TimeSeries from './timeseries';
 import Footer from './footer';
 
 function State(props) {
+  const {t} = useTranslation();
   const mapRef = useRef();
   const tsRef = useRef();
 
@@ -31,8 +31,6 @@ function State(props) {
   const [timeseriesMode, setTimeseriesMode] = useState(true);
   const [timeseriesLogMode, setTimeseriesLogMode] = useState(false);
   const [stateData, setStateData] = useState({});
-  const [testData, setTestData] = useState({});
-  const [sources, setSources] = useState({});
   const [districtData, setDistrictData] = useState({});
   const [stateName] = useState(STATE_CODES[stateCode]);
 
@@ -48,38 +46,24 @@ function State(props) {
         {data: dataResponse},
         {data: stateDistrictWiseResponse},
         {data: statesDailyResponse},
-        {data: stateTestResponse},
-        {data: sourcesResponse},
       ] = await Promise.all([
-        axios.get('https://api.covid19india.org/data.json'),
-        axios.get('https://api.covid19india.org/state_district_wise.json'),
-        axios.get('https://api.covid19india.org/states_daily.json'),
-        axios.get('https://api.covid19india.org/state_test_data.json'),
-        axios.get('https://api.covid19india.org/sources_list.json'),
+        axios.get('https://raw.githubusercontent.com/thantthet/covid19-api/master/data.json'),
+        axios.get('https://raw.githubusercontent.com/thantthet/covid19-api/master/state_district_wise.json'),
+        axios.get('https://raw.githubusercontent.com/thantthet/covid19-api/master/states_daily.json'),
       ]);
       const states = dataResponse.statewise;
       setStateData(states.find((s) => s.statecode === code));
       const ts = parseStateTimeseries(statesDailyResponse)[code];
       setTimeseries(ts);
-      const statesTests = stateTestResponse.states_tested_data;
       const name = STATE_CODES[code];
-      setTestData(
-        statesTests.filter(
-          (obj) => obj.state === name && obj.totaltested !== ''
-        )
-      );
       setDistrictData({
         [name]: stateDistrictWiseResponse[name],
       });
-      const sourceList = sourcesResponse.sources_list;
-      setSources(sourceList.filter((state) => state.statecode === code));
       setFetched(true);
     } catch (err) {
       console.log(err);
     }
   };
-
-  const testObjLast = testData[testData.length - 1];
 
   return (
     <React.Fragment>
@@ -94,37 +78,13 @@ function State(props) {
               className="header-left fadeInUp"
               style={{animationDelay: '0.3s'}}
             >
-              <h1>{stateName}</h1>
+              <h1>{t(`statenames.${stateName.toLowerCase()}`)}</h1>
               <h5>
-                Last Updated on{' '}
-                {Object.keys(stateData).length
+                {t('statepage.lastUpdatedOn', {time: Object.keys(stateData).length
                   ? formatDateAbsolute(stateData.lastupdatedtime)
-                  : ''}
+                  : ''})}
               </h5>
-            </div>
-            <div
-              className="header-right fadeInUp"
-              style={{animationDelay: '0.5s'}}
-            >
-              <h5>Tested</h5>
-              <h2>{formatNumber(testObjLast?.totaltested)}</h2>
-              <h5 className="timestamp">
-                {!isNaN(parse(testObjLast?.updatedon, 'dd/MM/yyyy', new Date()))
-                  ? `As of ${format(
-                      parse(testObjLast?.updatedon, 'dd/MM/yyyy', new Date()),
-                      'dd MMM'
-                    )}`
-                  : ''}
-              </h5>
-              <h5>
-                {'per '}
-                {testObjLast?.totaltested && (
-                  <a href={testObjLast.source} target="_noblank">
-                    source
-                  </a>
-                )}
-              </h5>
-            </div>
+            </div>
           </div>
 
           {fetched && <Level data={stateData} />}
@@ -137,7 +97,6 @@ function State(props) {
                   mapMeta={MAP_META[stateName]}
                   states={[stateData]}
                   stateDistrictWiseData={districtData}
-                  stateTestData={testData}
                   isCountryLoaded={false}
                 />
               }
@@ -155,26 +114,6 @@ function State(props) {
                   cases
                 </div>
               </div>
-              <div className="sources">
-                <Icon.Compass />
-                <div className="sources-right">
-                  Data collected from sources{' '}
-                  {sources.length > 0
-                    ? Object.keys(sources[0]).map((key) => {
-                        if (key.match('source') && sources[0][key] !== '') {
-                          const num = key.match(/\d+/);
-                          return (
-                            <React.Fragment>
-                              {num > 1 ? ',' : ''}
-                              <a href={sources[0][key]}>{num}</a>
-                            </React.Fragment>
-                          );
-                        }
-                        return null;
-                      })
-                    : ''}
-                </div>
-              </div>
             </div>
           )}
         </div>
@@ -187,7 +126,7 @@ function State(props) {
                   className="district-bar-left fadeInUp"
                   style={{animationDelay: '0.6s'}}
                 >
-                  <h2>Top districts</h2>
+                  <h2>{t("statepage.topDistrict")}</h2>
                   <div className="districts">
                     {districtData[stateName]
                       ? Object.keys(districtData[stateName].districtData)
@@ -235,16 +174,6 @@ function State(props) {
                 </div>
               </div>
 
-              <Link to="/essentials">
-                <div
-                  className="to-essentials fadeInUp"
-                  style={{animationDelay: '0.9s'}}
-                >
-                  <h2>Go to essentials</h2>
-                  <Icon.ArrowRightCircle />
-                </div>
-              </Link>
-
               <div
                 className="timeseries-header fadeInUp"
                 style={{animationDelay: '2.5s'}}
@@ -257,7 +186,7 @@ function State(props) {
                       setGraphOption(1);
                     }}
                   >
-                    <h4>Cumulative</h4>
+                    <h4>{t("Cumulative")}</h4>
                   </div>
                   <div
                     className={`tab ${graphOption === 2 ? 'focused' : ''}`}
@@ -265,14 +194,14 @@ function State(props) {
                       setGraphOption(2);
                     }}
                   >
-                    <h4>Daily</h4>
+                    <h4>{t("Daily")}</h4>
                   </div>
                 </div>
 
                 <div className="scale-modes">
-                  <label className="main">Scale Modes</label>
+                  <label className="main">{t("Scale Modes")}</label>
                   <div className="timeseries-mode">
-                    <label htmlFor="timeseries-mode">Uniform</label>
+                    <label htmlFor="timeseries-mode">{t("chart.mode.uniform")}</label>
                     <input
                       type="checkbox"
                       checked={timeseriesMode}
@@ -288,7 +217,7 @@ function State(props) {
                       graphOption !== 1 ? 'disabled' : ''
                     }`}
                   >
-                    <label htmlFor="timeseries-logmode">Logarithmic</label>
+                    <label htmlFor="timeseries-logmode">{t("chart.mode.logarithmic")}</label>
                     <input
                       type="checkbox"
                       checked={graphOption === 1 && timeseriesLogMode}
@@ -314,7 +243,7 @@ function State(props) {
 
         <div className="state-left">
           <div className="Clusters fadeInUp" style={{animationDelay: '0.8s'}}>
-            <h1>Network of transmission</h1>
+            <h1>{t("Network of transmission")}</h1>
             <Clusters stateCode={stateCode} />
           </div>
         </div>

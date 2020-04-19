@@ -23,6 +23,7 @@ function Home(props) {
   const {t} = useTranslation();
 
   const [states, setStates] = useState([]);
+  const [stateDistrictWiseData, setStateDistrictWiseData] = useState({});
   const [fetched, setFetched] = useState(false);
   const [graphOption, setGraphOption] = useState(1);
   const [lastUpdated, setLastUpdated] = useState('');
@@ -72,9 +73,11 @@ function Home(props) {
     try {
       const [
         {data},
+        stateDistrictWiseResponse,
         {data: statesDailyResponse},
       ] = await Promise.all([
         axios.get('https://raw.githubusercontent.com/thantthet/covid19-api/master/data.json'),
+        axios.get('https://raw.githubusercontent.com/thantthet/covid19-api/master/state_district_wise.json'),
         axios.get('https://raw.githubusercontent.com/thantthet/covid19-api/master/states_daily.json'),
       ]);
       setStates(data.statewise);
@@ -82,6 +85,7 @@ function Home(props) {
       ts['TT'] = preprocessTimeseries(data.cases_time_series); // TT -> India
       setTimeseries(ts);
       setLastUpdated(data.statewise[0].lastupdatedtime);
+      setStateDistrictWiseData(stateDistrictWiseResponse.data);
       setFetched(true);
     } catch (err) {
       console.log(err);
@@ -162,7 +166,7 @@ function Home(props) {
               forwardRef={refs[0]}
               states={states}
               summary={false}
-              // stateDistrictWiseData={stateDistrictWiseData}
+              stateDistrictWiseData={stateDistrictWiseData}
               onHighlightState={onHighlightState}
               onHighlightDistrict={onHighlightDistrict}
             />
@@ -176,7 +180,7 @@ function Home(props) {
                 forwardRef={refs[1]}
                 mapMeta={MAP_META.Myanmar}
                 states={states}
-                // stateDistrictWiseData={stateDistrictWiseData}
+                stateDistrictWiseData={stateDistrictWiseData}
                 // stateTestData={stateTestData}
                 regionHighlighted={regionHighlighted}
                 onMapHighlightChange={onMapHighlightChange}

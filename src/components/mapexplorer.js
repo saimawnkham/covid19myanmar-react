@@ -138,7 +138,7 @@ function MapExplorer({
       if (newMap.mapType === MAP_TYPES.COUNTRY) {
         setHoveredRegion(states[0].state, newMap);
       } else if (newMap.mapType === MAP_TYPES.STATE) {
-        const {districtData} = stateDistrictWiseData[name] || {};
+        const {districtData} = stateDistrictWiseData[name] || {districtData:{}};
         const topDistrict = Object.keys(districtData)
           .filter((name) => name !== 'Unknown')
           .sort((a, b) => {
@@ -255,7 +255,7 @@ function MapExplorer({
               : 0}
             <br />
             <span style={{fontSize: '0.75rem', fontWeight: 600}}>
-              confirmed
+              {t("confirmed.full")}
             </span>
           </h1>
         ) : null}
@@ -270,7 +270,7 @@ function MapExplorer({
         {currentMap.mapType === MAP_TYPES.STATE ? (
           <div
             className="button back-button"
-            onClick={() => switchMapToState('India')}
+            onClick={() => switchMapToState('Myanmar')}
           >
             Back
           </div>

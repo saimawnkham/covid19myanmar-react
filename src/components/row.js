@@ -108,7 +108,7 @@ function Row(props) {
               className={`dropdown ${
                 props.reveal ? 'rotateRightDown' : 'rotateDownRight'
               }`}
-              style={{display: 'none'}}
+              style={{display: !props.total ? '' : 'none'}}
               onClick={() => {
                 handleReveal();
               }}

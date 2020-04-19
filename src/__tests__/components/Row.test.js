@@ -11,7 +11,7 @@ const state = {
   deltarecovered: '0',
   lastupdatedtime: '30/03/2020 11:57:27',
   recovered: '10',
-  state: 'Andaman and Nicobar Islands',
+  state: 'Yangon', // translated string also needed to be the same
   statecode: 'AN',
 };
 
@@ -59,7 +59,7 @@ describe('Row component', () => {
 
     expect(stateSelector).toHaveLength(1);
     expect(cells).toHaveLength(5);
-    expect(stateName).toContain(state.state.toLowerCase());
+    expect(stateName).toContain(state.state);
     expect(confirmed).toEqual('11');
     expect(active).toEqual('1');
     expect(recovered).toEqual('10');

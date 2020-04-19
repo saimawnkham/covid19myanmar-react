@@ -1,11 +1,11 @@
-# covid19india.org
+# covid19.ttkz.me
 
 <p align="center">
-<img src="https://lh3.googleusercontent.com/qsMx1mwj0beTKis5j6tAE5U27l1iAhZUarv6_rJMoeIc6bhQilShYnQfZZtfuAb39MXP-P3ZG_EZMV_TKNl3AdM8dMBGh0KP=s2560" width="100%">
+
 </p>
 
 <p align="center">
-  View our <a href="https://bit.ly/patientdb">live patient database</a>.
+  Using data from <a href="https://github.com/thantthet/covid19-api">this</a> api repo.
  </p>
 
 ## Setup
@@ -16,7 +16,7 @@ npm i && npm start
 
 ## Maintainers
 
-- [jeremyphilemon](https://github.com/jeremyphilemon)
+- [thantthet](https://github.com/thantthet)
 
 ## Contribution
 

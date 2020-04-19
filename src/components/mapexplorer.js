@@ -5,6 +5,8 @@ import {formatDate, formatDateAbsolute} from '../utils/common-functions';
 import {formatDistance} from 'date-fns';
 import {formatNumber} from '../utils/common-functions';
 import {useTranslation} from 'react-i18next';
+import {Link} from 'react-router-dom';
+import * as Icon from 'react-feather';
 
 const getRegionFromState = (state) => {
   if (!state) return;
@@ -272,8 +274,17 @@ function MapExplorer({
             className="button back-button"
             onClick={() => switchMapToState('Myanmar')}
           >
-            Back
+            {t("Back")}
           </div>
+        ) : null}
+
+        {currentMap.mapType === MAP_TYPES.STATE ? (
+          <Link to={`state/${currentHoveredRegion.statecode}`}>
+            <div className="button state-page-button">
+              <abbr>{t("Visit state page")}</abbr>
+              <Icon.ArrowRightCircle />
+            </div>
+          </Link>
         ) : null}
       </div>
 

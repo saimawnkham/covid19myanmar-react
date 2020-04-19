@@ -71,7 +71,7 @@
     "magway": "Magway",
     "sagaing": "Sagaing",
     "tanintharyi": "Tanintharyi",
-    "naypyidaw": "Naypyidaw",
+    "nay pyi taw": "Naypyidaw",
     "total": "Total"
   },
   "chart": {
@@ -97,5 +97,11 @@
       "line1": "It is important that we do not think of these as just tiny boxes, numbers, or just another part of statistics - among these are our neighbors, our teachers, our healthcare workers, our supermarket vendors, our friends, our co-workers, our children or our grandparents.",
       "line2": "Among these are our people."
     }
-  }
+  },
+  "state": {},
+  "statepage": {
+    "topDistrict": "Top districts",
+    "lastUpdatedOn": "Last updated on {{time}}"
+  },
+  "Network of transmission": "Network of transmission"
 }

@@ -1,6 +1,5 @@
 import React from 'react';
 import * as Icon from 'react-feather';
-import Popup from './popup';
 
 function Footer(props) {
   return (
@@ -22,9 +21,8 @@ function Footer(props) {
         rel="noopener noreferrer"
       >
         <Icon.Database />
-        <span>dataset by covidmyanmar.com</span>
+        <span>Live data from covidmyanmar.com</span>
       </a>
-      <Popup />
     </footer>
   );
 }

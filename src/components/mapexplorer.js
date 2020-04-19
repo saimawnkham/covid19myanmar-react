@@ -97,11 +97,13 @@ function MapExplorer({
             recovered: 0,
           };
         }
-        setCurrentHoveredRegion(getRegionFromDistrict(districtData, name));
+        const currentHoveredRegion = getRegionFromDistrict(districtData, name);
         const panelRegion = getRegionFromState(
           states.find((state) => currentMap.name === state.state)
         );
         setPanelRegion(panelRegion);
+        currentHoveredRegion.statecode = panelRegion.statecode;
+        setCurrentHoveredRegion(currentHoveredRegion);
         if (onMapHighlightChange) onMapHighlightChange(panelRegion);
       }
     },

@@ -228,7 +228,7 @@ function Row(props) {
       >
         <td onClick={(e) => handleSort('district')}>
           <div className="heading-content">
-            <abbr title="District">District</abbr>
+            <abbr title="District">{t("District")}</abbr>
             <div
               style={{
                 display:
@@ -251,9 +251,9 @@ function Row(props) {
             >
               {window.innerWidth <= 769
                 ? window.innerWidth <= 375
-                  ? 'C'
-                  : 'Cnfmd'
-                : 'Confirmed'}
+                  ? t('confirmed.shorter')
+                  : t('confirmed.short')
+                : t('confirmed.full')}
             </abbr>
             <div
               style={{
@@ -272,7 +272,7 @@ function Row(props) {
         <td className="state-page-link" colSpan={3}>
           <Link to={`state/${state.statecode}`}>
             <div>
-              <abbr>Visit state page</abbr>
+              <abbr>{t("Visit state page")}</abbr>
               <Icon.ArrowRightCircle />
             </div>
           </Link>

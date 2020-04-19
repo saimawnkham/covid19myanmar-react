@@ -213,7 +213,7 @@ function PatientDB(props) {
           <div className="select">
             <DatePicker
               value={filterDate}
-              minDate={new Date('30-Jan-2020')}
+              minDate={new Date('22-Mar-2020')}
               maxDate={subDays(new Date(), 1)}
               format="dd/MM/y"
               calendarIcon={<Icon.Calendar />}

@@ -46,7 +46,7 @@ function Home(props) {
     if (fetched === false) {
       getStates();
       axios
-        .get('https://api.covid19india.org/updatelog/log.json')
+        .get('https://raw.githubusercontent.com/thantthet/covid19-api/master/updatelog/log.json')
         .then((response) => {
           const currentTimestamp = response.data
             .slice()

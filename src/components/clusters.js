@@ -33,7 +33,7 @@ function Clusters({stateCode}) {
         nodesSet.add(pid);
         nodes.push({
           id: pid,
-          group: sources.has(pid) ? 'source' : 'target',
+          group: sources.has(d.patientnumber) ? 'source' : 'target',
           raw: d,
         });
         contracted.forEach((p) => {
@@ -122,9 +122,7 @@ function Clusters({stateCode}) {
         nodeColor={(node) => (node.group === 'source' ? '#dc3545' : 'gray')}
         linkDirectionalParticleColor={() => 'red'}
         linkDirectionalParticles={1}
-        linkDirectionalParticleWidth={(link) =>
-          link.source.id[0] === 'P' ? 2 : 0
-        }
+        linkDirectionalParticleWidth={2}
         enableZoomPanInteraction={false}
       />
     );

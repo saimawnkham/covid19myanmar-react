@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import {formatNumber} from '../utils/common-functions';
+import {useTranslation} from 'react-i18next';
 
 function Level(props) {
+  const {t} = useTranslation();
   const [data, setData] = useState(props.data);
 
   useEffect(() => {
@@ -22,7 +24,7 @@ function Level(props) {
         className="level-item is-cherry fadeInUp"
         style={{animationDelay: '1s'}}
       >
-        <h5>Confirmed</h5>
+        <h5>{(t("confirmed.full"))}</h5>
         <h4>
           [
           {isNaN(data.deltaconfirmed)
@@ -39,7 +41,7 @@ function Level(props) {
         className="level-item is-blue fadeInUp"
         style={{animationDelay: '1.1s'}}
       >
-        <h5 className="heading">Active</h5>
+        <h5 className="heading">{t("active.full")}</h5>
         <h4>&nbsp;</h4>
         {/* <h4>[{props.deltas ? props.deltas.confirmeddelta-(props.deltas.recovereddelta+props.deltas.deceaseddelta) >=0 ? '+'+(props.deltas.confirmeddelta-(props.deltas.recovereddelta+props.deltas.deceaseddelta)).toString() : '+0' : ''}]</h4>*/}
         <h1 className="title has-text-info">{formatNumber(data.active)}</h1>
@@ -49,7 +51,7 @@ function Level(props) {
         className="level-item is-green fadeInUp"
         style={{animationDelay: '1.2s'}}
       >
-        <h5 className="heading">Recovered</h5>
+        <h5 className="heading">{t("recovered.full")}</h5>
         <h4>
           [
           {isNaN(data.deltarecovered)
@@ -68,7 +70,7 @@ function Level(props) {
         className="level-item is-gray fadeInUp"
         style={{animationDelay: '1.3s'}}
       >
-        <h5 className="heading">Deceased</h5>
+        <h5 className="heading">{t("deceased.full")}</h5>
         <h4>
           [
           {isNaN(data.deltadeaths)
